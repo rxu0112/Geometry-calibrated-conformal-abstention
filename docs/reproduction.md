@@ -15,7 +15,7 @@ Run every command from the repository root, using `python -m` and the module nam
 cd Geometry-calibrated-conformal-abstention
 ```
 
-Download the complete `results/` folder from the [Hugging Face bucket](https://huggingface.co/buckets/rxu0112/Geometry-calibrated-conformal-abstention) and place it at the repository root, alongside `processed_data/`, preserving its directory structure.
+Download the `results/` folder from the [Hugging Face bucket](https://huggingface.co/buckets/rxu0112/Geometry-calibrated-conformal-abstention) and place it at the repository root, alongside `processed_data/`, preserving its directory structure.
 
 Before recomputing saved outputs, follow the [rerun conventions](#output-and-rerun-conventions).
 
@@ -83,6 +83,8 @@ Run extraction, correctness evaluation, and baseline scoring separately for each
 
 ### 1. Extract logits, hidden states, and contributions
 
+The bucket includes `results/Llama-3.2-3B-Instruct/common/common_lens_results.pkl` as a sample for checking. Other lens-result files are omitted because of their size and must be generated with the corresponding logit scripts.
+
 Use the extraction modules for your model:
 
 | Model | Logit module | Contribution module |
@@ -148,7 +150,7 @@ This combines extraction outputs with the required judgments, filters examples, 
 results/<model>/<dataset>/<dataset>_features.pt
 ```
 
-Each pair requires its own matching judgments and extraction outputs before running this command.
+Before running this command, generate the missing lens results for all 18 configurations. Each pair also requires its matching judgments and contribution outputs.
 
 ### 4. Train the confidence calibrator
 

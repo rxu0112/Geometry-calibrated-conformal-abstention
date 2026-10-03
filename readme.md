@@ -57,7 +57,7 @@ Datasets: `sciq`, `simple_questions_wiki`, `nq`, `truthfulQA`, `gsm8k`, and `com
 
 ## Main experiment
 
-Download the complete `results/` folder from the [Hugging Face bucket](https://huggingface.co/buckets/rxu0112/Geometry-calibrated-conformal-abstention) and place it at the repository root, alongside `processed_data/`, preserving its directory structure.
+Download the `results/` folder from the [Hugging Face bucket](https://huggingface.co/buckets/rxu0112/Geometry-calibrated-conformal-abstention) and place it at the repository root, alongside `processed_data/`, preserving its directory structure.
 
 Run the commands below from the repository root using `python -m`:
 
@@ -69,6 +69,8 @@ conda activate Geo_CA_env
 Extraction, correctness evaluation, and baseline scoring run one model/dataset combination at a time; run them separately for each combination you need. Feature computation, calibrator training, baseline data preparation, and conformal evaluation process all six datasets and all three models automatically. Before recomputing saved outputs, follow the [rerun conventions](docs/reproduction.md#output-and-rerun-conventions).
 
 ### 1. Extract representations
+
+The bucket includes `results/Llama-3.2-3B-Instruct/common/common_lens_results.pkl` as a sample for checking. Other lens-result files are omitted because of their size and must be generated with the corresponding logit scripts.
 
 For example, extract representations for SciQ with `Llama-3.2-3B-Instruct`:
 
